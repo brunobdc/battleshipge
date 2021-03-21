@@ -1,0 +1,5 @@
+package battleshipgameng
+
+func StartGame() {
+
+}

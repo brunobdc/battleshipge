@@ -20,19 +20,19 @@ func clearBoard() {
 	}
 }
 
-type location struct {
-	y   int
-	x   int
-	hit bool
-}
+var ships map[string][]location
 
-var ships = map[string][]location{
-	"Battleship": {location{}, location{}, location{}, location{}},
-	"Cruiser":    {location{}, location{}, location{}},
-	"Destroyer":  {location{}, location{}},
+func newShips() {
+	ships = map[string][]location{
+		"Battleship": {location{}, location{}, location{}, location{}},
+		"Cruiser":    {location{}, location{}, location{}},
+		"Destroyer":  {location{}, location{}},
+	}
 }
 
 func generateShips() {
+	newShips()
+
 	r := rand.Rand{}
 	var x, y, loc int
 	var wcolision bool

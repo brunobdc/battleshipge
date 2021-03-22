@@ -1,10 +1,18 @@
 package battleshipgameng
 
-func StartGame() (ships map[string][]location) {
+func StartGame() map[string][]string {
 	clearBoard()
 	generateShips()
 
-	return ships
+	s := make(map[string][]string)
+
+	for ship, locations := range ships {
+		for _, loc := range locations {
+			s[ship] = append(s[ship], loc.getStringLoc())
+		}
+	}
+
+	return s
 }
 
 func Shoot() {
